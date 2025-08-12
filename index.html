@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
+  <title>LIFF App</title>
+</head>
+<body>
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.5.0/sdk.js"></script>
+  <script>
+const flexJson = 
+
+      // START   /////////////////////////// แก้ไข ก้อนนี้
+{
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://lh3.googleusercontent.com/d/1R5QgbaYScnk0Yn7LuXlBQgxzgKaPBqjE",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "cover",
+    "action": {
+      "type": "uri",
+      "uri": "https://line.me/"
+    }
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "spacing": "md",
+    "contents": [
+      {
+        "type": "text",
+        "text": "เชิญเข้าร่วมเป็นสมาชิกระดับ VIP",
+        "wrap": true,
+        "weight": "bold",
+        "gravity": "center",
+        "size": "xl"
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "margin": "md",
+        "contents": [
+          {
+            "type": "icon",
+            "size": "sm",
+            "url": "https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png"
+          },
+          {
+            "type": "icon",
+            "size": "sm",
+            "url": "https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png"
+          },
+          {
+            "type": "icon",
+            "size": "sm",
+            "url": "https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png"
+          },
+          {
+            "type": "icon",
+            "size": "sm",
+            "url": "https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png"
+          },
+          {
+            "type": "icon",
+            "size": "sm",
+            "url": "https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png"
+          },
+          {
+            "type": "text",
+            "text": "5.0",
+            "size": "sm",
+            "color": "#999999",
+            "margin": "md",
+            "flex": 0
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "margin": "lg",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "จาก",
+                "color": "#aaaaaa",
+                "size": "sm",
+                "flex": 1
+              },
+              {
+                "type": "text",
+                "text": "Thanin Pongyakate",
+                "wrap": true,
+                "size": "sm",
+                "color": "#666666",
+                "flex": 4
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "ตำแหน่ง",
+                "color": "#aaaaaa",
+                "size": "sm",
+                "flex": 1
+              },
+              {
+                "type": "text",
+                "text": "Senior Sales",
+                "wrap": true,
+                "color": "#666666",
+                "size": "sm",
+                "flex": 4
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "สินค้า",
+                "color": "#aaaaaa",
+                "size": "sm",
+                "flex": 1
+              },
+              {
+                "type": "text",
+                "text": "FLUKE",
+                "wrap": true,
+                "color": "#666666",
+                "size": "sm",
+                "flex": 4
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "text",
+                "text": "ตั๋ว",
+                "flex": 1,
+                "color": "#aaaaaa",
+                "size": "sm"
+              },
+              {
+                "type": "text",
+                "text": "1 สิทธิ์ (จำกัด)",
+                "color": "#666666",
+                "flex": 4,
+                "size": "sm"
+              }
+            ],
+            "spacing": "sm"
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "margin": "xxl",
+        "contents": [
+          {
+            "type": "text",
+            "text": "You can enter the vip by using this code instead of a ticket",
+            "color": "#aaaaaa",
+            "wrap": true,
+            "margin": "xxl",
+            "size": "xs"
+          }
+        ]
+      }
+    ]
+  }
+}
+      
+      // END  /////////////////////////// แก้ไข ก้อนนี้
+      
+    
+const mandatoryButton = {
+  "type": "button",
+  "style": "primary",
+  "height": "sm",
+  "action": {
+    "type": "uri",
+    "label": "Apply Membership",
+    "uri": "https://liff.line.me/2007333975-podn6BlY" /// กดปุ่ม share แล้วจะเด้งมาลิ้งนี้ https://liff.line.me/2007333975-podn6BlY, https://liff.line.me/2007333975-87Bn3Wpx
+  },
+  "color": "#473d45"
+};
+
+async function main() {
+  await liff.init({ liffId: "2007333975-87Bn3Wpx" });
+  await shareFlex(); // เรียกแชร์ทันทีหลัง init
+}
+
+async function shareFlex() {
+  try {
+    // เช็คว่ามี footer และ contents หรือยัง
+    if (!flexJson.footer) {
+      flexJson.footer = { type: "box", layout: "vertical", contents: [] };
+    } else if (!flexJson.footer.contents) {
+      flexJson.footer.contents = [];
+    }
+
+    // เช็คก่อนว่ามีปุ่มนี้อยู่แล้วหรือยัง ป้องกันเติมซ้ำ
+    const alreadyExists = flexJson.footer.contents.some(item => 
+      item.type === 'button' &&
+      item.action &&
+      item.action.uri === mandatoryButton.action.uri
+    );
+
+    if (!alreadyExists) {
+      flexJson.footer.contents.push(mandatoryButton);
+    }
+
+    await liff.shareTargetPicker([
+      {
+        type: "flex",
+        altText: "Flex message from Sittichart",
+        contents: flexJson
+      }
+    ]);
+    liff.closeWindow();
+  } catch (err) {
+    alert('⚠️ เกิดข้อผิดพลาดใน JSON หรือขณะแชร์: ' + err);
+  }
+}
+
+main();
+  </script>
+</body>
+</html>
